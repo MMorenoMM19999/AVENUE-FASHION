@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/estiloP.css">
+    <script src="js/ValidacionInicio.js"></script>
+    <title>Sistema de Registro</title>
+   
+</head>
+<body>
+    <h2>Sistema de Registro</h2>
+    
+     
+    <!-- Botones -->
+    <a class="boton-azul" href="{% url 'EdicionEmpleados' %}" >Registro Empleados</a>
+    <a class="boton-azul" href="{% url 'formularioResgistroCliente' %}">Registro Cliente</a>
+    <a class="boton-azul" href="{% url 'fromularioRegistroReparacion' %}">Registro Reparaciones</a>
+    <a class="boton-azul" href="{% url 'formularioRegistroRepuesto' %}">Registro Repuestos</a>
+    <a class="boton-azul" href="{% url 'formularioRegistroAutomoviles' %}">Registro Automóviles</a>
+    
+    <!-- Título -->
+    <h2 id="informacion-actual">Información Actual</h2>
+    
+    <!-- Selector de opciones -->
+    <select id="opciones" onchange="cargarTabla()">
+        <option value="carros-actuales">Carros Actuales</option>
+        <option value="clientes-actuales">Clientes Actuales</option>
+        <option value="Empleados-actuales">Empleados Actuales</option>
+        <option value="respuestos-actuales">Repuestos Actuales</option>
+        <option value="reparaciones-actuales">Reparaciones Actuales</option>
+    </select>
+
+    <!-- Tabla -->
+    <table id="tabla">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>cantidad </th>
+                <th>Descripción</th>
+                
+                <!-- Añade más columnas según sea necesario -->
+            </tr>
+        </thead>
+        <tbody>
+       
+           
+        </tbody>
+    </table>
+
+    <!-- Botones Borrar y Modificar -->
+    <button class="boton-borrar" onclick="borrarSeleccion()">Borrar</button>
+    <button class="boton-modificar" onclick="modificarSeleccion()">Modificar</button>
+
+    <a href="{% url 'SignIn' %}" class="">Volver </a>
+
+
+   
+</body>
+</html>

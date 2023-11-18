@@ -1,0 +1,14 @@
+{% block content %}
+
+<h1>Signin</h1>
+
+<p>{{error}}</p>
+
+<form action="/SignIn/" method="POST">
+  {% csrf_token %} {{form.as_p}}
+  <button>Signin</button>
+</form>
+
+<a href="{% url 'empleadoSignUp' %}"> Registrar Empleado </a>
+<a href="{% url 'ingresar_sucursal' %}"> Registrar una Sucursal</a>
+{% endblock %}

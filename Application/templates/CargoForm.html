@@ -1,0 +1,34 @@
+<!--- CargoForm.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Detalles del Cargo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h2>Detalles del Cargo - Registro de Empleado: {{ empleado.id }}</h2>
+    <form method="POST" action="{% url 'cargoSignUp' empleado.id %}">
+      {% csrf_token %}
+      <!-- Agregar menú desplegable para seleccionar la sucursal -->
+      <label for="cod_sucursal">Seleccione la sucursal:</label>
+      <select name="cod_sucursal" id="cod_sucursal">
+        {% for sucursal in sucursales %}
+        <option value="{{ sucursal.cod_sucursal }}">
+          {{ sucursal.cod_sucursal }} - {{ sucursal.nombre }}
+        </option>
+        {% endfor %}
+      </select>
+      <br /><br />
+      <div id="GERENTE" class="cargo-form" style="display: none">
+        {{ gerente_form.as_p }}
+      </div>
+      <div id="JEFE DE TALLER" class="cargo-form" style="display: none">
+        {{ jefe_taller_form.as_p }}
+      </div>
+      <div id="ASESOR COMERCIAL" class="cargo-form" style="display: none">
+        {{ asesor_comercial_form.as_p }}
+      </div>
+      <input type="submit" value="Siguiente" />
+    </form>
+  </body>
+</html>

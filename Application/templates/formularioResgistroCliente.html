@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/FormularioRegistroCliente.css">
+    <title>Formulario de Registro de Cliente</title>
+</head>
+<body>
+
+    <h2>Registro de Cliente</h2>
+
+    <form action="{% url 'formularioRegistroCliente' %}" method="post">
+        {% csrf_token %}
+        <label for="nombre">nombre:</label>
+        <input type="text" id="nombre" name="nombre" >
+
+        <label for="apellido">apellido:</label>
+        <input type="text" id="apellido" name="apellido" >
+
+        <label for="telefono">teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" placeholder="Ej. 1234567890" >
+
+        <label for="correo">Correo :</label>
+        <input type="email" id="correo" name="correo" >
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" >
+
+        <label for="id_cliente">ID:</label>
+        <input type="text" id="id_cliente" name="id_cliente" >
+
+        <input type="submit" value="Registrar">
+
+        
+        <a href="{% url 'interfaz_P' %}" class="">Volver </a>
+    </form>
+
+    
+</body>
+</html>

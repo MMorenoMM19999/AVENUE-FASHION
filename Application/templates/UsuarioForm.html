@@ -1,0 +1,18 @@
+<!--- UsuarioForm.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registro de Usuario y Contraseña</title>
+  </head>
+  <body>
+    <h2>
+      Registro de Usuario y Contraseña - Registro de Empleado: {{ empleado.id }}
+    </h2>
+    <form method="POST" action="{% url 'usuarioSignUp' empleado.id %}">
+      {% csrf_token %}
+      <!-- Agregar campos para registro de usuario y contraseña -->
+      {{ form.as_p}}
+      <input type="submit" value="Registrar" />
+    </form>
+  </body>
+</html>
